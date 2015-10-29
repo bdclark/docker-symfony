@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
   php5-mongo \
   php5-mysqlnd \
   php5-xdebug \
-  php5-xsl
+  php5-xsl \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY php_additional.ini /etc/php5/cli/conf.d/
 
