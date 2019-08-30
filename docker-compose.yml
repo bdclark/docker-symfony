@@ -1,0 +1,18 @@
+app:
+    build: .
+    volumes:
+        - ./:/srv
+php-fpm:
+    build: steadyserv/php-fpm
+    expose:
+        - 9000:9000
+    volumes_from:
+        - symfony-app
+nginx:
+    build: nginx
+    ports:
+        - 80:80
+    links:
+        - php-fpm
+    volumes_from:
+        - symfony-app

@@ -31,8 +31,10 @@ COPY etc /etc/
 COPY php/php_additional.ini /etc/php5/cli/conf.d/
 COPY php/php_additional.ini /etc/php5/fpm/conf.d/
 
+WORKDIR /srv
+
 VOLUME ["/srv", "/log"]
 
-EXPOSE 80 443
+EXPOSE 80
 
 ENTRYPOINT ["/init"]
